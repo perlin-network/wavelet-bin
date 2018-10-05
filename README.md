@@ -25,8 +25,8 @@ The Perlin Wavelet project comes with several wrappers/executables.
 
 | Command    | Description |
 |:----------:|-------------|
-| **`wavelet`** | The main Wavelet CLI client. It allows running a testnet node (private network), and used by other processes to access the network. Refer to the [Wavelet CLI wiki page][wiki-wavelet-cli] for command line options. |
-| `wctl` | Utility tool to interact with a Wavelet client. Please see our [wctl][wctl-wiki] wiki page for details. |
+| **`wavelet`** | The main Wavelet CLI client. It allows running a testnet node (private network), and used by other processes to access the network. Refer to the [Wavelet CLI][wiki-wavelet-cli] wiki page for command line options. |
+| `wctl` | Utility tool to interact with a Wavelet client. Please see our [wctl][wiki-wctl] wiki page for details. |
 
 # Getting Started
 
@@ -120,4 +120,4 @@ Coming soon...
 [github-releases]: https://github.com/perlin-network/wavelet-bin/releases
 [wiki-wavelet-cli]: https://github.com/perlin-network/wavelet-bin/wiki/Command-Line-Options
 [wiki-wctl]: https://github.com/perlin-network/wavelet-bin/wiki/wctl
-[wiki-wavelet-configuration-file]: https://github.com/perlin-network/wavelet-bin/wiki/Configuration
+[wiki-wavelet-configuration-file]: https://github.com/perlin-network/wavelet-bin/wiki/Configuration-File
