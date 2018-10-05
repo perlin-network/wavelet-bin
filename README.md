@@ -21,11 +21,19 @@ If you would like to test the perlin project on a local cluster, you can run the
 
 ```
 [terminal 1] $ ./wavelet --port 3000 --db.path testdb3000 --api.port 9000
-[terminal 2] $ ./wavelet --port 3001 --db.path testdb3001 ----privkey random --peers tcp://localhost:3000
-[terminal 3] $ ./wavelet --port 3002 --db.path testdb3002 ----privkey random --peers tcp://localhost:3000
+[terminal 2] $ ./wavelet --port 3001 --db.path testdb3001 --privkey random --peers tcp://localhost:3000
+[terminal 3] $ ./wavelet --port 3002 --db.path testdb3002 --privkey random --peers tcp://localhost:3000
 ```
 
-*You need at least 3 processes active to have the ledger update.*
+To send a transaction, type one of the following in the terminal of a node:
+
+```
+[terminal 1] > Enter a message:
+ # `w`: to view your wallet
+ # `p {public key} {amount}`: to pay a random wallet
+ # `a {public key}`: to view the balance of another account
+ # ctrl-c: to exit
+```
 
 ### Configuration
 
