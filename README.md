@@ -38,7 +38,9 @@ To test Wavelet on a local cluster, run the following commands in 2 terminals.
 
 ```shell
 [terminal 1] > ./wavelet --port 3000 --db.path testdb_1 --api.port 9000
-[terminal 2] > ./wavelet --port 3001 --db.path testdb_2 --privkey 25eef1345af9a2ce93e7ca5623224913b64b71ac314480902c1ec3bdba8b7537e6bb44e8ae761d9793f6941929dbf81f5727b698945746e5f3233b0ee0e83be7 --peers tcp://localhost:3000
+[terminal 2] > ./wavelet --port 3001 --db.path testdb_2 \
+    --privkey 25eef1345af9a2ce93e7ca5623224913b64b71ac314480902c1ec3bdba8b7537e6bb44e8ae761d9793f6941929dbf81f5727b698945746e5f3233b0ee0e83be7 \
+    --peers tcp://localhost:3000
 ```
 
 To send a transaction, type the following command into terminal 1: `p e6bb44e8ae761d9793f6941929dbf81f5727b698945746e5f3233b0ee0e83be7 5`. This sends 5 PERLs (Perlin tokens) to the second client.
@@ -102,7 +104,9 @@ In the Wavelet command line mode, you can directly enter commands through the co
 With the `wctl` application, you can send remote API commands to a Wavelet client if the API option is enabled. Refer to the [wctl wiki page][wiki-wctl] for usage instructions.
 
 ```shell
-> ./wctl send_transaction --remote ${API_HOST}:${API_PORT} --privkey ${API_PRIVATE_KEY} transfer '{"recipient": "${PUBLIC_KEY}", "amount": ${AMOUNT}}'
+> ./wctl send_transaction --remote ${API_HOST}:${API_PORT} \
+    --privkey ${API_PRIVATE_KEY} \
+    transfer '{"recipient": "${PUBLIC_KEY}", "amount": ${AMOUNT}}'
 ```
 
 ### Web UI
