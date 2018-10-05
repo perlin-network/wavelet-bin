@@ -105,7 +105,7 @@ With the `wctl` application, you can send remote API commands to a Wavelet clien
 
 ```shell
 > ./wctl send_transaction --remote ${API_HOST}:${API_PORT} \
-    --privkey ${API_PRIVATE_KEY} \
+    --privkey ${API_KEY} \
     transfer '{"recipient": "${PUBLIC_KEY}", "amount": ${AMOUNT}}'
 ```
 
