@@ -25,12 +25,12 @@ The Perlin Wavelet project comes with several wrappers/executables.
 
 | Command    | Description |
 |:----------:|-------------|
-| **`wavelet`** | The main Wavelet CLI client. It allows running a testnet node (private network), and used by other processes to access the network. Refer to the [Wavelet CLI][wiki-wavelet-cli] wiki page for command line options. |
-| `wctl` | Utility tool to interact with a Wavelet client. Please see our [wctl wiki page][wiki-wctl] for details. |
+| **`wavelet`** | The main Wavelet CLI client. It runs a testnet node (private network) and also allows for remote API access. Refer to the [Wavelet CLI][wiki-wavelet-cli] wiki page for command line options. |
+| `wctl` | Utility tool to interact with a Wavelet client. Please see our [wctl][wiki-wctl] wiki page for details. |
 
 # Getting Started
 
-To get started running Wavelet, download one of the pre-built release binaries from our [GitHub releases][github-releases] page. We currently support Linux and OSX. Support for Windows coming soon.
+To get started running Wavelet, download one of the pre-built release binaries from our [GitHub releases][github-releases] page. We currently support Linux and OSX (x64 only). Binaries for Windows are included but not fully supported.
 
 ## Quickstart
 
@@ -39,40 +39,39 @@ To test Wavelet on a local cluster, run the following commands in 2 terminals.
 ```shell
 [terminal 1] > ./wavelet --port 3000 --db.path testdb_1 --api.port 9000
 [terminal 2] > ./wavelet --port 3001 --db.path testdb_2 \
-    --privkey 25eef1345af9a2ce93e7ca5623224913b64b71ac314480902c1ec3bdba8b7537e6bb44e8ae761d9793f6941929dbf81f5727b698945746e5f3233b0ee0e83be7 \
+    --private_key_file wallet.txt \
     --peers tcp://localhost:3000
 ```
 
-To send a transaction, type the following command into terminal 1: `p e6bb44e8ae761d9793f6941929dbf81f5727b698945746e5f3233b0ee0e83be7 5`. This sends 5 PERLs (Perlin tokens) to the second client.
+To send a transaction, type the following command into terminal 1: `p [public_key] 5` replacing `[public_key]` with the second client's generated public key. This sends 5 PERLs (Perlin tokens) to the second client.
 
 ```shell
-> Enter a message: p e6bb44e8ae761d9793f6941929dbf81f5727b698945746e5f3233b0ee0e83be7 5
-2018-10-05T11:44:49-04:00 |DEBUG| Applied transaction. nonce=2 public_key=e6bb44e8ae761d9793f6941929dbf81f5727b698945746e5f3233b0ee0e83be7 tx=7c3628c1b13ac18c52c3f3f9b84000116507056a7e8f63cba0c26eb42393c86d
-2018-10-05T11:44:49-04:00 |DEBUG| Accepted 1 transactions. accepted=["7c3628c1b1"]
-2018-10-05T11:44:49-04:00 |DEBUG| Received an existing transaction, and voted 'true' for it. id=40cfa6eb4e360c67c390791fe19f69f611d705efb10d764f6592b45640abbcf6 tag=nop
-
-...
-
-2018-10-05T11:44:50-04:00 |DEBUG| Accepted 1 transactions. accepted=["40cfa6eb4e"]
-2018-10-05T11:44:50-04:00 |DEBUG| Received an existing transaction, and voted 'true' for it. id=bb2b0bd545a06b46845a6ec760b5ea61b2714164762ac123801cb149fe9fc87c tag=nop
-2018-10-05T11:44:50-04:00 |DEBUG| Successfully broadcasted transaction. id=40cfa6eb4e360c67c390791fe19f69f611d705efb10d764f6592b45640abbcf6 tag=nop
+> Enter a message: p bfba6b298c9ff9beb1848d8dbd0fa4ceb2967dce3913eeaa91376fb1db27c284 5
+2018-11-07T14:00:48-05:00 |INFO| Success! Your payment transaction ID: 478ad5e199db74ebcde14c90b24fe74cbdc9521c9625f5b2ac4f6f304cd8cb88
 ```
+
+In terminal 2, you can check the balance with the following command.
+
+```shell
+> Enter a message: w
+2018-11-07T14:01:41-05:00 |INFO| Here is your wallet information. balance: 5 id: bfba6b298c9ff9beb1848d8dbd0fa4ceb2967dce3913eeaa91376fb1db27c284 nonce: 9 stake: 0
+```
+
 
 ## Running Wavelet
 
 Starting Wavelet with no arguments will launch the client with the default settings listening for connections on port 3000. It saves ledger state data to directory `testdb`.
 
 ```shell
-> ./wavelet
-2018-10-05T11:10:02-04:00 |INFO| Database has been loaded. db_path=testdb
-2018-10-05T11:10:02-04:00 |INFO| Successfully seeded the genesis of this node. file=genesis.json num_accounts=1
-2018-10-05T11:10:02-04:00 |INFO| Registered transaction processor service. module=cloud.wasm
-2018-10-05T11:10:02-04:00 |INFO| Registered transaction processor service. module=contract.wasm
-2018-10-05T11:10:02-04:00 |INFO| Registered transaction processor service. module=money.wasm
-2018-10-05T11:10:02-04:00 |INFO| Keypair loaded. private_key=6d6fe0c2bc913c0e3e497a0328841cf4979f932e01d2030ad21e649fca8d47fe71e6c9b83a7ef02bae6764991eefe53360a0a09be53887b2d3900d02c00a3858 public_key=71e6c9b83a7ef02bae6764991eefe53360a0a09be53887b2d3900d02c00a3858
-ERROR: logging before flag.Parse: I1005 11:10:02.659623   16931 network.go:206] Listening for peers on tcp://127.0.0.1:3000.
-Enter a message: w
-2018-10-05T11:10:05-04:00 |INFO| Here is your wallet information. balance=100000000 id=71e6c9b83a7ef02bae6764991eefe53360a0a09be53887b2d3900d02c00a3858 nonce=0
+❯ ./wavelet
+2018-11-07T14:03:09-05:00 |INFO| Database has been loaded. db_path: testdb
+2018-11-07T14:03:09-05:00 |INFO| Successfully seeded the genesis of this node. file: genesis.json num_accounts: 1
+2018-11-07T14:03:09-05:00 |INFO| Registered transaction processor service. module: cloud.wasm
+2018-11-07T14:03:09-05:00 |INFO| Registered transaction processor service. module: contract.wasm
+2018-11-07T14:03:09-05:00 |INFO| Registered transaction processor service. module: money.wasm
+2018-11-07T14:03:09-05:00 |INFO| Registered transaction processor service. module: stake.wasm
+2018-11-07T14:03:09-05:00 |INFO| Keypair loaded. private_key: 6d6fe0c2bc913c0e3e497a0328841cf4979f932e01d2030ad21e649fca8d47fe71e6c9b83a7ef02bae6764991eefe53360a0a09be53887b2d3900d02c00a3858 public_key: 71e6c9b83a7ef02bae6764991eefe53360a0a09be53887b2d3900d02c00a3858
+2018-11-07T14:03:09-05:00 |INFO| Listening for peers. address=tcp://127.0.0.1:3000
 Enter a message:
 ```
 
@@ -93,11 +92,12 @@ You can interact with Wavelet in several ways.
 
 In the Wavelet command line mode, you can directly enter commands through the console. The following is a list of supported commands.
 
-```shell
-`w`: to view your wallet
-`p <public key> <amount>`: to pay a wallet with the specified public key
-`a <public key>`: to view the balance of another account
-```
+* `w [public_key]`: View details about a wallet. If public_key is not specified, it retrieves the client's wallet information.
+* `p [public_key] [amount]`: Pay amount to a wallet given its public key.
+* `tx [tx_id]`: Returns details about transaction with tx_id.
+* `c [smart_contract_path]`: Deploy a smart contract at specified path.
+* `ps [stake_amount]`: Register as a validator with a placed stake amount.
+* `ws [stake_amount]`: Withdraw stake amount from your stake as a validator.
 
 ### Programatically using wctl
 
