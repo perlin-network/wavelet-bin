@@ -1,6 +1,6 @@
 # Wavelet Releases
 
-Official releases of the [Perlin][perlin] Wavelet ledger. For more info, read our [blog post][wavelet-ledger]. For more info see [Perlin.net][perlin].
+Official releases of the [Perlin][perlin] Wavelet ledger. For more info, read our [blog post][wavelet-ledger] and refer to our [wiki page](wiki).
 
 [![Discord][discord-shield]][discord]
 
@@ -118,6 +118,7 @@ To interact with your wavelet node through the browser, see the [Lens](https://g
 [discord-shield]: https://img.shields.io/discord/458332417909063682.svg
 [discord]: https://discord.gg/dMYfDPM
 [github-releases]: https://github.com/perlin-network/wavelet-bin/releases
+[wiki]: https://github.com/perlin-network/wavelet-bin/wiki
 [wiki-wavelet-cli]: https://github.com/perlin-network/wavelet-bin/wiki/Command-Line-Options
 [wiki-wctl]: https://github.com/perlin-network/wavelet-bin/wiki/wctl
 [wiki-wavelet-configuration-file]: https://github.com/perlin-network/wavelet-bin/wiki/Configuration-File
