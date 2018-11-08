@@ -111,7 +111,7 @@ With the `wctl` application, you can send remote API commands to a Wavelet clien
 
 ### Web UI
 
-Coming soon...
+To interact with your node as browser, see the Perlin-Network [Lens](https://github.com/perlin-network/lens) project
 
 [perlin]: https://www.perlin.net
 [wavelet-ledger]: https://medium.com/perlin-network/wavelet-a-metastable-sybil-resistant-ledger-517ea7ee9031
