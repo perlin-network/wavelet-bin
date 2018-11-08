@@ -4,7 +4,7 @@ Official releases of the [Perlin][perlin] Wavelet ledger. For more info, read ou
 
 [![Discord][discord-shield]][discord]
 
-Binary archives are published at [GitHub releases][github-releases].
+Binary archives are published as [GitHub releases][github-releases].
 
 # Table of Contents
 - [Wavelet Releases](#wavelet-releases)
@@ -34,7 +34,7 @@ To get started running Wavelet, download one of the pre-built release binaries f
 
 ## Quickstart
 
-To test Wavelet on a local cluster, run the following commands in 2 terminals.
+To test Wavelet on a local cluster, run the following commands in 2 terminals. Wavelet requires a minimum of 2 nodes to be connected with each other at all times.
 
 ```shell
 [terminal 1] > ./wavelet --port 3000 --db.path testdb_1 --api.port 9000
