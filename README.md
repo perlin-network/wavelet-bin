@@ -104,9 +104,10 @@ In the Wavelet command line mode, you can directly enter commands through the co
 With the `wctl` application, you can send remote API commands to a Wavelet client if the API option is enabled. Refer to the [wctl wiki page][wiki-wctl] for usage instructions.
 
 ```shell
-> ./wctl send_transaction --remote ${API_HOST}:${API_PORT} \
-    --privkey ${API_KEY} \
-    transfer '{"recipient": "${PUBLIC_KEY}", "amount": ${AMOUNT}}'
+> ./wctl send_transaction \
+    --api.host ${API_HOST} --api.port ${API_PORT} \
+    --api.private_key_file ${PRIVATE_KEY_FILE} \
+    transfer '{"recipient": "${PUBLIC_KEY}", "amount": ${AMOUNT}}"
 ```
 
 ### Web UI
