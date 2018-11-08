@@ -1,6 +1,6 @@
 # Wavelet Releases
 
-Official releases of the [Perlin][perlin] Wavelet ledger. For more info, read our [blog post][wavelet-ledger] and refer to our [wiki page](wiki).
+Official releases of the [Perlin][perlin] Wavelet ledger. For more info, read our [blog post][wavelet-ledger] and refer to our [wiki page][wiki].
 
 [![Discord][discord-shield]][discord]
 
