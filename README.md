@@ -1,6 +1,6 @@
 # Wavelet Releases
 
-Official releases of the [Perlin][perlin] Wavelet ledger. For more info, read our [blog post][wavelet-ledger].
+Official releases of the [Perlin][perlin] Wavelet ledger. For more info, read our [blog post][wavelet-ledger]. For more info see [Perlin.net][perlin].
 
 [![Discord][discord-shield]][discord]
 
@@ -111,7 +111,7 @@ With the `wctl` application, you can send remote API commands to a Wavelet clien
 
 ### Web UI
 
-To interact with your node as browser, see the Perlin-Network [Lens](https://github.com/perlin-network/lens) project
+To interact with your wavlet node through your browser, see the Perlin-Network [Lens](https://github.com/perlin-network/lens) project
 
 [perlin]: https://www.perlin.net
 [wavelet-ledger]: https://medium.com/perlin-network/wavelet-a-metastable-sybil-resistant-ledger-517ea7ee9031
