@@ -39,7 +39,7 @@ To test Wavelet on a local cluster, run the following commands in 2 terminals. W
 ```shell
 [terminal 1] > ./wavelet --port 3000 --db.path testdb_1 --api.port 9000
 [terminal 2] > ./wavelet --port 3001 --db.path testdb_2 \
-    --private_key_file wallet.txt \
+    --private_key_file random \
     --peers tcp://localhost:3000
 ```
 
